@@ -15,8 +15,8 @@ A simple Discord bot that modifies the end of every message in a server by repla
 ## 🔧 Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-   cd YOUR_REPO
+   git clone https://github.com/AdamMatolak11/KUBO_bot.git
+   cd KUBO_bot
    ```
 2. Install dependencies:
    ```bash
@@ -36,16 +36,16 @@ Ensure your bot has the following permissions:
 - "Read Messages" & "Send Messages" (basic functionality)
 
 ## ⚙️ Configuration
-Modify `CUSTOM_PHRASE` in `bot.py` to change the appended phrase.
+Modify `@Kubo` in `bot.py` to change the appended phrase.
 ```python
-CUSTOM_PHRASE = " [your phrase]"  # Change this to your desired text
+CUSTOM_PHRASE = " @Kubo"  # Change this to your desired text
 ```
 
 ## 📝 Example
 | Input        | Output                |
 |-------------|------------------------|
-| `Hello world.` | `Hello world [your phrase]` |
-| `Hello world`  | `Hello world [your phrase]` |
+| `Hello world.` | `Hello world @Kubo` |
+| `Hello world`  | `Hello world @Kubo` |
 
 ## 🤖 Bot Behavior
 - It edits user messages in real-time.
