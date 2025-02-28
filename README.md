@@ -15,8 +15,8 @@ A simple Discord bot that modifies the end of every message in a server by repla
 ## 🔧 Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/AdamMatolak11/KUBO_bot.git
-   cd KUBO_bot
+   git clone https://github.com/AdamMatolak11/KUBOT.git
+   cd KUBOT
    ```
 2. Install dependencies:
    ```bash
