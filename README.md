@@ -3,10 +3,11 @@
 A simple Discord bot that modifies the end of every message in a server by replacing the final period (`.`) with a @Kubo phrase. If a message does not end with a period, the phrase is appended automatically.
 
 ## 🚀 Features
-- Replaces the ending period (`.`) with a @Kubo phrase.
-- Appends the phrase if no period is found at the end.
-- Ignores messages from bots to prevent loops.
-- Works across all text channels.
+- **Message Modification**: Replaces the ending period (`.`) with a `@Kubo` mention or appends it if no period is found.
+- **Bot Management**: Slash commands to activate and deactivate the bot (only for the bot owner).
+- **Bot Stats**: Shows the bot’s uptime and message count.
+- **Real-time Updates**: The bot processes and modifies messages in real-time.
+- **Bot Permission Management**: Ensure the bot has the necessary permissions to manage messages and interact with users.
 
 ## 📦 Requirements
 - Python 3.8+
