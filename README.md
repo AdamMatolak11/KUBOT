@@ -60,14 +60,17 @@ CUSTOM_PHRASE = " @Kubo"  # Change this to your desired text
 - Description: Activates the bot (only for the bot owner).
 - Usage: /kubon
 - Permission: Only the bot owner can use this command.
+
 /kuboff
 - Description: Deactivates the bot (only for the bot owner).
 - Usage: /kuboff
 - Permission: Only the bot owner can use this command.
+
 /status
 - Description: Displays whether the bot is active or inactive.
 - Usage: /status
 - Permission: Anyone can use this command.
+
 /stats
 - Description: Shows the bot’s stats, including message count and uptime.
 - Usage: /stats
