@@ -35,6 +35,7 @@ python bot.py
 Ensure your bot has the following permissions:
 - "Manage Messages" (to edit messages)
 - "Read Messages" & "Send Messages" (basic functionality)
+- "Use Slash Commands" (for command execution)
 
 ## ⚙️ Configuration
 Modify `@Kubo` in `bot.py` to change the appended phrase.
@@ -49,9 +50,28 @@ CUSTOM_PHRASE = " @Kubo"  # Change this to your desired text
 | `Hello world`  | `Hello world @Kubo` |
 
 ## 🤖 Bot Behavior
-- It edits user messages in real-time.
-- Ignores messages from other bots.
-- Requires "Manage Messages" permission.
+- Message Editing: The bot edits user messages by adding the custom mention at the end of the message.
+- Real-time Processing: It processes messages as they are sent in the channel.
+- Bot Management: The bot can be activated or deactivated using slash commands (/kubon, /kuboff).
+- Stats: Use /stats to view the bot's uptime and message processing stats.
+
+## 🧑‍💻 Slash Commands
+/kubon
+- Description: Activates the bot (only for the bot owner).
+- Usage: /kubon
+- Permission: Only the bot owner can use this command.
+/kuboff
+- Description: Deactivates the bot (only for the bot owner).
+- Usage: /kuboff
+- Permission: Only the bot owner can use this command.
+/status
+- Description: Displays whether the bot is active or inactive.
+- Usage: /status
+- Permission: Anyone can use this command.
+/stats
+- Description: Shows the bot’s stats, including message count and uptime.
+- Usage: /stats
+- Permission: Anyone can use this command.
 
 ## 📜 License
 This project is licensed under the MIT License.
