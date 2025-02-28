@@ -6,8 +6,9 @@ A simple Discord bot that modifies the end of every message in a server by repla
 - **Message Modification**: Replaces the ending period (`.`) with a `@Kubo` mention or appends it if no period is found.
 - **Bot Management**: Slash commands to activate and deactivate the bot (only for the bot owner).
 - **Bot Stats**: Shows the bot’s uptime and message count.
+- **Message Cleanup**: Removes all bot messages from a channel using `/kuboclear`.
 - **Real-time Updates**: The bot processes and modifies messages in real-time.
-- **Bot Permission Management**: Ensure the bot has the necessary permissions to manage messages and interact with users.
+- **Bot Permission Management**: Ensures the bot has the necessary permissions to manage messages and interact with users.
 
 ## 📦 Requirements
 - Python 3.8+
@@ -33,14 +34,14 @@ python bot.py
 
 ## 🛠 Bot Permissions
 Ensure your bot has the following permissions:
-- "Manage Messages" (to edit messages)
+- "Manage Messages" (to edit and delete messages)
 - "Read Messages" & "Send Messages" (basic functionality)
 - "Use Slash Commands" (for command execution)
 
 ## ⚙️ Configuration
 Modify `@Kubo` in `bot.py` to change the appended phrase.
 ```python
-CUSTOM_PHRASE = " @Kubo"  # Change this to your desired text
+CUSTOM_PHRASE = " <@Kubo>"  # Change this to your desired text
 ```
 
 ## 📝 Example
@@ -50,31 +51,37 @@ CUSTOM_PHRASE = " @Kubo"  # Change this to your desired text
 | `Hello world`  | `Hello world @Kubo` |
 
 ## 🤖 Bot Behavior
-- Message Editing: The bot edits user messages by adding the custom mention at the end of the message.
-- Real-time Processing: It processes messages as they are sent in the channel.
-- Bot Management: The bot can be activated or deactivated using slash commands (/kubon, /kuboff).
-- Stats: Use /stats to view the bot's uptime and message processing stats.
+- **Message Editing**: The bot edits user messages by adding the custom mention at the end of the message.
+- **Real-time Processing**: It processes messages as they are sent in the channel.
+- **Bot Management**: The bot can be activated or deactivated using slash commands (/kubon, /kuboff).
+- **Stats**: Use /stats to view the bot's uptime and message processing stats.
+- **Message Cleanup**: Use /kuboclear to remove all bot messages in a channel.
 
 ## 🧑‍💻 Slash Commands
-/kubon
-- Description: Activates the bot (only for the bot owner).
-- Usage: /kubon
-- Permission: Only the bot owner can use this command.
+### /kubon
+- **Description**: Activates the bot (only for the bot owner).
+- **Usage**: /kubon
+- **Permission**: Only the bot owner can use this command.
 
-/kuboff
-- Description: Deactivates the bot (only for the bot owner).
-- Usage: /kuboff
-- Permission: Only the bot owner can use this command.
+### /kuboff
+- **Description**: Deactivates the bot (only for the bot owner).
+- **Usage**: /kuboff
+- **Permission**: Only the bot owner can use this command.
 
-/status
-- Description: Displays whether the bot is active or inactive.
-- Usage: /status
-- Permission: Anyone can use this command.
+### /status
+- **Description**: Displays whether the bot is active or inactive.
+- **Usage**: /status
+- **Permission**: Anyone can use this command.
 
-/stats
-- Description: Shows the bot’s stats, including message count and uptime.
-- Usage: /stats
-- Permission: Anyone can use this command.
+### /stats
+- **Description**: Shows the bot’s stats, including message count and uptime.
+- **Usage**: /stats
+- **Permission**: Anyone can use this command.
+
+### /kuboclear
+- **Description**: Deletes all bot messages in the current channel.
+- **Usage**: /kuboclear
+- **Permission**: Anyone can use this command.
 
 ## 📜 License
 This project is licensed under the MIT License.
@@ -83,4 +90,3 @@ This project is licensed under the MIT License.
 
 ### 💡 Need Help?
 If you encounter issues, feel free to open an issue in this repository!
-
