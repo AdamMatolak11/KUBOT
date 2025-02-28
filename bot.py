@@ -83,7 +83,7 @@ async def status(interaction: discord.Interaction):
     await interaction.response.send_message(f"The Kubot is currently {status}.", ephemeral=True)
 
 # 🔥 Slash command for bot stats
-@bot.tree.command(name="stats", description="Shows the bot's stats, like message count.")
+@bot.tree.command(name="stats", description="Shows the Kubot's stats, like message count.")
 async def stats(interaction: discord.Interaction):
     # Get the bot's creation time and the current time in UTC
     created_at = bot.user.created_at.replace(tzinfo=datetime.timezone.utc)
@@ -91,7 +91,7 @@ async def stats(interaction: discord.Interaction):
 
     # Calculate uptime
     uptime = current_time - created_at
-    await interaction.response.send_message(f"Bot Stats:\n"
+    await interaction.response.send_message(f"Kubot Stats:\n"
                                            f"Messages Processed: {bot.message_count}\n"
                                            f"Uptime: {str(uptime).split('.')[0]}", ephemeral=True)
 
