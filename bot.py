@@ -1,11 +1,12 @@
+import asyncio
 import discord
 from discord import app_commands
 from discord.ext import commands
 import datetime
 
 TOKEN = "YOUR_BOT_TOKEN"
-KUBO_ID = 123456789098765  # Replace with Kubo's actual user ID
-BOT_OWNER_ID = 123456789098765  # Replace with your Discord user ID
+KUBO_ID = 1234567890987654321  # Replace with Kubo's actual user ID
+BOT_OWNER_ID = 1234567890987654321  # Replace with your Discord user ID
 
 CUSTOM_PHRASE = f" <@{KUBO_ID}>"  # Space before mention
 
@@ -83,7 +84,7 @@ async def status(interaction: discord.Interaction):
     await interaction.response.send_message(f"The Kubot is currently {status}.", ephemeral=True)
 
 # 🔥 Slash command for bot stats
-@bot.tree.command(name="stats", description="Shows the Kubot's stats, like message count.")
+@bot.tree.command(name="stats", description="Shows the Kbot's stats, like message count.")
 async def stats(interaction: discord.Interaction):
     # Get the bot's creation time and the current time in UTC
     created_at = bot.user.created_at.replace(tzinfo=datetime.timezone.utc)
@@ -94,5 +95,30 @@ async def stats(interaction: discord.Interaction):
     await interaction.response.send_message(f"Kubot Stats:\n"
                                            f"Messages Processed: {bot.message_count}\n"
                                            f"Uptime: {str(uptime).split('.')[0]}", ephemeral=True)
+
+# 🗑️ Slash command to clear bot messages with rate limit handling
+@bot.tree.command(name="kuboclear", description="Deletes all bot messages in this channel.")
+async def clear_bot_messages(interaction: discord.Interaction):
+    # if interaction.user.id != BOT_OWNER_ID:
+    #     await interaction.response.send_message("❌ You don’t have permission to use this command!", ephemeral=True)
+    #     return
+
+    await interaction.response.defer(ephemeral=True)  # Prevents timeout
+
+    deleted_count = 0
+    async for message in interaction.channel.history(limit=100):  # Adjust limit if needed
+        if message.author.bot:  # Deletes messages from ALL bots
+            try:
+                await message.delete()
+                deleted_count += 1
+                await asyncio.sleep(0.5)  # Prevents rate limiting
+            except discord.NotFound:
+                print(f"Message {message.id} not found, skipping.")
+            except discord.Forbidden:
+                print("Missing permissions to delete messages.")
+            except discord.HTTPException as e:
+                print(f"Failed to delete message {message.id}: {e}")
+
+    await interaction.followup.send(f"🗑️ Deleted {deleted_count} bot messages.", ephemeral=True)
 
 bot.run(TOKEN)
